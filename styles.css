@@ -1,0 +1,279 @@
+body { /* Základní styl pro tělo stránky */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+nav { /* Styly pro navigační lištu */
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+}
+
+nav ul { /* Styly pro seznam v navigaci */
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li { /* Styl pro položky seznamu v navigaci */
+    margin: 0 15px;
+}
+
+nav ul li a { /* Odkazy v navigaci */
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.active { /* Styl pro hover a aktivní odkaz */
+    color: #ffd700;
+}
+
+header .hero { /* Hlavní sekce s obrázkem */
+    background: url('gym.jpg') no-repeat center center/cover;
+    height: 300px;
+    position: relative;
+}
+
+header .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+#trainers .trainers-grid {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.trainer { /* Styl pro trenéry */
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.trainer img {
+    max-width: 200px;
+    border-radius: 50%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td { /* Okraje a obsah tabulky */
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #333;
+    color: #fff;
+}
+
+/* Přidání k existujícím stylům v styles.css */
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover { /* Hover efekt položky galerie */
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+    display: block;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-modal { /* Tlačítko zavření modalu */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+/* Přidat do styles.css */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background-color: white;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+td:nth-child(2), td:nth-child(3) {
+    text-align: right;
+}
+
+small {
+    color: #666;
+    display: block;
+    margin-top: 4px;
+}
+
+#pricing-details h2 {
+    margin-top: 2rem;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5rem;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.contact-details {
+    background-color: #f5f5f5;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-details h2 {
+    color: #333;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact-details h2:first-child {
+    margin-top: 0;
+}
+
+.contact-details p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.social-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #007bff;
+}
+
+.map-container {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        max-width: 800px;
+        margin: 0 auto 2rem auto;
+    }
+}
