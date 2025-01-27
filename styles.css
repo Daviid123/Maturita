@@ -1,17 +1,24 @@
-body { /* Základní styl pro tělo stránky */
-    font-family: Arial, sans-serif;
+body {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
-nav { /* Styly pro navigační lištu */
-    background-color: #333;
-    color: white;
-    padding: 1rem;
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 
-nav ul { /* Styly pro seznam v navigaci */
+/* Vylepšené menu */
+nav {
+    background: linear-gradient(to right, #1a237e, #42a5f5);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
     list-style-type: none;
     display: flex;
     justify-content: center;
@@ -19,28 +26,48 @@ nav ul { /* Styly pro seznam v navigaci */
     padding: 0;
 }
 
-nav ul li { /* Styl pro položky seznamu v navigaci */
+nav ul li {
     margin: 0 15px;
 }
 
-nav ul li a { /* Odkazy v navigaci */
+nav ul li a {
     color: white;
     text-decoration: none;
-    transition: color 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
 }
 
-nav ul li a:hover, nav ul li a.active { /* Styl pro hover a aktivní odkaz */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover, nav ul li a.active {
     color: #ffd700;
 }
 
-header .hero { /* Hlavní sekce s obrázkem */
-    background: url('gym.jpg') no-repeat center center/cover;
-    height: 300px;
+/* Hero sekce */
+header .hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('background.jpg') no-repeat center center;
+    background-size: cover;
+    height: 80vh; /* Zvětšená výška pro lepší efekt */
     position: relative;
+    margin-bottom: 2rem;
 }
 
 header .overlay {
-    background: rgba(0, 0, 0, 0.5);
+    background: none; /* Odstraníme původní gradient, protože už je v background */
     color: #fff;
     display: flex;
     flex-direction: column;
@@ -48,8 +75,41 @@ header .overlay {
     align-items: center;
     height: 100%;
     text-align: center;
+    padding: 0 20px;
 }
 
+header .overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    margin-bottom: 1.5rem;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
+}
+
+header .overlay h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+/* Animace pro nadpisy */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Hlavní obsah */
 main {
     max-width: 1200px;
     margin: 0 auto;
@@ -58,50 +118,96 @@ main {
 
 section {
     margin-bottom: 2rem;
-    padding: 1rem;
+    padding: 1.5rem;
     background-color: #f4f4f4;
-    border-radius: 5px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
+/* Trenéři */
 #trainers .trainers-grid {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-.trainer { /* Styl pro trenéry */
+.trainer {
     text-align: center;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    padding: 1.5rem;
+    border: none;
+    border-radius: 10px;
     background-color: white;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.trainer:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .trainer img {
     max-width: 200px;
     border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 3px solid #42a5f5;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table, th, td { /* Okraje a obsah tabulky */
-    border: 1px solid #ddd;
-    padding: 8px;
+.trainer ul {
+    list-style-type: none;
+    padding: 0;
     text-align: left;
 }
 
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #333;
-    color: #fff;
+.trainer ul li {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
 }
 
-/* Přidání k existujícím stylům v styles.css */
+.trainer ul li::before {
+    content: "•";
+    color: #42a5f5;
+    position: absolute;
+    left: 0;
+}
 
+/* Tabulky */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #1a237e;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+td:nth-child(2), td:nth-child(3) {
+    text-align: right;
+}
+
+/* Galerie */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -112,12 +218,12 @@ footer {
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
 
-.gallery-item:hover { /* Hover efekt položky galerie */
+.gallery-item:hover {
     transform: scale(1.02);
 }
 
@@ -133,7 +239,7 @@ footer {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0,0,0,0.6);
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
     color: white;
     padding: 1rem;
     transform: translateY(100%);
@@ -144,6 +250,7 @@ footer {
     transform: translateY(0);
 }
 
+/* Modal */
 .modal {
     display: none;
     position: fixed;
@@ -161,6 +268,7 @@ footer {
     max-height: 90vh;
     margin: auto;
     display: block;
+    border-radius: 8px;
 }
 
 .modal.active {
@@ -169,55 +277,21 @@ footer {
     align-items: center;
 }
 
-.close-modal { /* Tlačítko zavření modalu */
+.close-modal {
     position: absolute;
     top: 1rem;
     right: 1rem;
     color: white;
     font-size: 2rem;
     cursor: pointer;
-}
-/* Přidat do styles.css */
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    background-color: white;
+    transition: transform 0.3s ease;
 }
 
-th, td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
+.close-modal:hover {
+    transform: rotate(90deg);
 }
 
-th {
-    background-color: #f5f5f5;
-    font-weight: bold;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-td:nth-child(2), td:nth-child(3) {
-    text-align: right;
-}
-
-small {
-    color: #666;
-    display: block;
-    margin-top: 4px;
-}
-
-#pricing-details h2 {
-    margin-top: 2rem;
-    color: #333;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 0.5rem;
-}
-
+/* Kontakty */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -226,16 +300,18 @@ small {
 }
 
 .contact-details {
-    background-color: #f5f5f5;
+    background-color: white;
     padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .contact-details h2 {
-    color: #333;
+    color: #1a237e;
     margin-top: 1.5rem;
     margin-bottom: 1rem;
+    border-bottom: 2px solid #42a5f5;
+    padding-bottom: 0.5rem;
 }
 
 .contact-details h2:first-child {
@@ -248,26 +324,90 @@ small {
 }
 
 .social-link {
-    color: #333;
+    color: #42a5f5;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-weight: 500;
 }
 
 .social-link:hover {
-    color: #007bff;
+    color: #1a237e;
 }
 
 .map-container {
     width: 100%;
     height: 450px;
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
 .map-container iframe {
     width: 100%;
     height: 100%;
+}
+
+/* Tlačítko zpět nahoru */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #42a5f5;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+}
+
+.back-to-top:hover {
+    background: #1a237e;
+    transform: translateY(-3px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(to right, #1a237e, #42a5f5);
+    color: #fff;
+}
+
+/* Responzivní design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+    
+    .trainers-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .trainer {
+        width: 100%;
+        max-width: none;
+    }
+    
+    header .overlay h1 {
+        font-size: 2rem;
+        padding: 0 1rem;
+    }
 }
 
 @media (min-width: 768px) {
@@ -276,4 +416,17 @@ small {
         max-width: 800px;
         margin: 0 auto 2rem auto;
     }
+}
+
+/* Pomocné třídy */
+.text-center {
+    text-align: center;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.mt-2 {
+    margin-top: 2rem;
 }
