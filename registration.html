@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervace tréninku - Fitness Hala Zlín</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Domů</a></li>
+                <li><a href="contacts.html">Kontakty</a></li>
+                <li><a href="opening-hours.html">Otevírací doba</a></li>
+                <li><a href="prices.html">Ceník</a></li>
+                <li><a href="gallery.html">Galerie</a></li>
+                <li><a href="trainers.html">Trenéři</a></li>
+                <li><a href="registration.html">Registrace</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="form-container">
+            <h1>Rezervace tréninku</h1>
+            
+            <div class="progress-bar">
+                <div class="progress-line"></div>
+                <div class="progress-step active" data-step="1">1</div>
+                <div class="progress-step" data-step="2">2</div>
+                <div class="progress-step" data-step="3">3</div>
+            </div>
+
+            <form id="registrationForm">
+                <!-- Krok 1: Osobní údaje -->
+                <div class="form-step active" data-step="1">
+                    <h2>Osobní údaje</h2>
+                    <div class="form-group">
+                        <label for="name">Jméno a příjmení *</label>
+                        <input type="text" id="name" name="name" required>
+                        <div class="error-message">Prosím vyplňte své jméno</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                        <div class="error-message">Zadejte platnou emailovou adresu</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon *</label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <div class="error-message">Zadejte platné telefonní číslo</div>
+                    </div>
+                    <div class="button-group">
+                        <div></div>
+                        <button type="button" class="btn btn-next">Další</button>
+                    </div>
+                </div>
+
+                <!-- Krok 2: Výběr trenéra -->
+                <div class="form-step" data-step="2">
+                    <h2>Výběr trenéra</h2>
+                    <div class="trainer-options">
+                        <div class="trainer-card" data-trainer="radek">
+                            <h3>Radek</h3>
+                            <p>Specializace: Silový trénink</p>
+                            <p>Zkušenosti: 26 let</p>
+                        </div>
+                        <div class="trainer-card" data-trainer="jana">
+                            <h3>Jana</h3>
+                            <p>Specializace: Pilates, Rehabilitace</p>
+                            <p>Zkušenosti: 15 let</p>
+                        </div>
+                        <div class="trainer-card" data-trainer="charles">
+                            <h3>Charles</h3>
+                            <p>Specializace: TRX, Funkční trénink</p>
+                            <p>Zkušenosti: 10 let</p>
+                        </div>
+                    </div>
+                    <div class="error-message">Prosím vyberte trenéra</div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-prev">Zpět</button>
+                        <button type="button" class="btn btn-next">Další</button>
+                    </div>
+                </div>
+
+                <!-- Krok 3: Termín -->
+                <div class="form-step" data-step="3">
+                    <h2>Výběr termínu</h2>
+                    <div class="form-group">
+                        <label for="date">Datum *</label>
+                        <input type="date" id="date" name="date" required>
+                        <div class="error-message">Vyberte datum tréninku</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Čas *</label>
+                        <select id="time" name="time" required>
+                            <option value="">Vyberte čas</option>
+                            <option value="8:00">8:00</option>
+                            <option value="9:00">9:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                        </select>
+                        <div class="error-message">Vyberte čas tréninku</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="notes">Poznámka (volitelné)</label>
+                        <textarea id="notes" name="notes" rows="3"></textarea>
+                    </div>
+                    <div class="button-group">
+                        <button type="button" class="btn btn-prev">Zpět</button>
+                        <button type="submit" class="btn btn-submit">Odeslat rezervaci</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="success-message">
+                <h2>Rezervace byla úspěšně odeslána!</h2>
+                <p>Na váš email jsme zaslali potvrzení rezervace.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2024 Fitness Hala Zlín
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
