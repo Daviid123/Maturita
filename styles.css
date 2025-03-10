@@ -3,6 +3,9 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3 {
@@ -114,6 +117,9 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 section {
@@ -588,4 +594,38 @@ footer {
     .trainer-options {
         grid-template-columns: 1fr;
     }
+}
+
+.trainer-card.selected {
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background-color: #42a5f5;
+    color: white;
+}
+body.opening-hours-page {
+    background-image: url('veiny-biceps.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: white;
+}
+
+.opening-hours-page section {
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+}
+
+.opening-hours-page table {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+}
+
+.opening-hours-page th, 
+.opening-hours-page td {
+    border: 1px solid #444;
+}
+
+.opening-hours-page tr:nth-child(even) {
+    background-color: rgba(30, 30, 30, 0.5);
 }
