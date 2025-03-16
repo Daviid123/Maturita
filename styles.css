@@ -227,6 +227,7 @@ td:nth-child(2), td:nth-child(3) {
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    cursor: pointer; /* změna kurzoru */
 }
 
 .gallery-item:hover {
@@ -291,10 +292,42 @@ td:nth-child(2), td:nth-child(3) {
     font-size: 2rem;
     cursor: pointer;
     transition: transform 0.3s ease;
+    z-index: 1010;
 }
 
 .close-modal:hover {
     transform: rotate(90deg);
+}
+
+/* Navigační šipky */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1010;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-btn {
+    left: 15%;
+}
+
+.next-btn {
+    right: 15%;
 }
 
 /* Kontakty */
@@ -413,6 +446,19 @@ footer {
     header .overlay h1 {
         font-size: 2rem;
         padding: 0 1rem;
+    }
+    .nav-btn {
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    .prev-btn {
+        left: 0.5rem;
+    }
+    
+    .next-btn {
+        right: 0.5rem;
     }
 }
 

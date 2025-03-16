@@ -11,16 +11,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImg = document.querySelector('.modal-content');
     // Najde tlačítko pro zavření modálního okna
     const closeBtn = document.querySelector('.close-modal');
+    // Najde navigační šipky
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    // Proměnná pro sledování aktuálního indexu obrázku v galerii
+    let currentImageIndex = 0;
 
     // Pro každý prvek galerie přidá událost kliknutí
-    galleryItems.forEach(item => {
+    galleryItems.forEach((item, index) => {
         item.addEventListener('click', () => {
             // Získej zdroj obrázku (src) z aktuálního prvku
             const imgSrc = item.querySelector('img').src;
             // Nastaví zdroj obrázku v modálu
             modalImg.src = imgSrc;
+            // Aktualizuje index aktuálního obrázku
+            currentImageIndex = index;
             modal.classList.add('active');
         });
+    });
+
+    // Funkce pro zobrazení předchozího obrázku
+    function showPrevImage() {
+        currentImageIndex = (currentImageIndex - 1 + galleryItems.length) % galleryItems.length;
+        const imgSrc = galleryItems[currentImageIndex].querySelector('img').src;
+        modalImg.src = imgSrc;
+    }
+
+    // Funkce pro zobrazení následujícího obrázku
+    function showNextImage() {
+        currentImageIndex = (currentImageIndex + 1) % galleryItems.length;
+        const imgSrc = galleryItems[currentImageIndex].querySelector('img').src;
+        modalImg.src = imgSrc;
+    }
+
+    // Event listenery pro navigační tlačítka
+    prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Zabraňuje probublávání události na modal
+        showPrevImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // Zabraňuje probublávání události na modal
+        showNextImage();
+    });
+
+    // Přidání klávesových zkratek pro navigaci (šipky vlevo/vpravo)
+    document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        
+        if (e.key === 'ArrowLeft') {
+            showPrevImage();
+        } else if (e.key === 'ArrowRight') {
+            showNextImage();
+        } else if (e.key === 'Escape') {
+            modal.classList.remove('active');
+        }
     });
 
     closeBtn.addEventListener('click', () => {
@@ -135,15 +181,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Nastavení minimálního data na dnešek
     const dateInput = document.getElementById('date');
-    const today = new Date().toISOString().split('T')[0];
-    dateInput.min = today;
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-    const phoneInput = document.getElementById('phone');
-    if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
-            this.value = this.value.replace(/[^0-9]/g, '');
-        });
+    if (dateInput) {
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
     }
 });
