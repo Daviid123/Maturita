@@ -323,11 +323,11 @@ td:nth-child(2), td:nth-child(3) {
 }
 
 .prev-btn {
-    left: 15%;
+    left: 26%;
 }
 
 .next-btn {
-    right: 15%;
+    right: 26%;
 }
 
 /* Kontakty */
@@ -454,11 +454,11 @@ footer {
     }
 
     .prev-btn {
-        left: 0.5rem;
+        left: 0.2rem
     }
     
     .next-btn {
-        right: 0.5rem;
+        right: 0.2rem;
     }
 }
 
@@ -674,4 +674,55 @@ body.opening-hours-page {
 
 .opening-hours-page tr:nth-child(even) {
     background-color: rgba(30, 30, 30, 0.5);
+}
+
+body.prices-page {
+    background-image: url(tatooed-arm.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.prices-page section {
+    background-color: rgba(0, 0, 0, 0.7); 
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    color: white; 
+}
+
+.prices-page table {
+    background-color: rgba(26, 35, 126, 0.6);
+    color: white;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.prices-page th {
+    background-color: rgba(26, 35, 126, 0.9);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.prices-page td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.prices-page tr:nth-child(even) {
+    background-color: rgba(66, 165, 245, 0.3);
+}
+
+.prices-page h1, .prices-page h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+#pricing-details {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.prices-page small {
+    color: rgba(255, 255, 255, 0.7);
 }
