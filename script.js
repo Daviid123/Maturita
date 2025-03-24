@@ -88,7 +88,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextButtons = document.querySelectorAll('.btn-next');
     const prevButtons = document.querySelectorAll('.btn-prev');
     const trainerCards = document.querySelectorAll('.trainer-card');
+    const phoneInput = document.getElementById('phone');
     let currentStep = 1;
+
+    // Validace telefonního čísla
+    phoneInput.addEventListener('input', function(e) {
+        // Nahraďí jakékoli jiné než číselné znaky
+        this.value = this.value.replace(/[^\d+]/g, '');
+    });
 
     // Funkce pro přepínání kroků
     function showStep(stepNumber) {
@@ -123,7 +130,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 isValid = false;
                 errorMessage.style.display = 'block';
             } else {
-                errorMessage.style.display = 'none';
+                // Dodatečná validace pro telefon
+                if (input.id === 'phone') {
+                    const phoneRegex = /^(\+\d{1,3})?[- ]?\d{9,}$/;
+                    if (!phoneRegex.test(input.value)) {
+                        isValid = false;
+                        errorMessage.textContent = 'Zadejte platné telefonní číslo';
+                        errorMessage.style.display = 'block';
+                    } else {
+                        errorMessage.style.display = 'none';
+                    }
+                } else {
+                    errorMessage.style.display = 'none';
+                }
             }
         });
 
@@ -172,7 +191,10 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         if (validateStep(currentStep)) {
-            // Požadavek na server
+            // Alert okno
+            alert('Vaše rezervace byla úspěšně odeslána!');
+
+            // Původní logika skrytí formuláře
             form.style.display = 'none';
             document.querySelector('.progress-bar').style.display = 'none';
             document.querySelector('.success-message').style.display = 'block';
