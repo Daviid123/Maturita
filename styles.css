@@ -1,594 +1,650 @@
+/* Základní styly pro tělo dokumentu */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    font-family: 'Roboto', sans-serif; /* Nastavuje celý dokument na písmo Roboto */
+    margin: 0; /* Odstraňuje vnější okraje */
+    padding: 0; /* Odstraňuje vnitřní okraje */
+    line-height: 1.6; /* Nastavuje výšku řádku na 1.6x velikost písma pro lepší čitelnost */
+    min-height: 100vh; /* Zajišťuje, že tělo dokumentu zabírá minimálně celou výšku viewportu */
+    display: flex; /* Nastavuje flexbox layout */
+    flex-direction: column; /* Obsah uspořádán vertikálně */
 }
 
+/* Styly pro nadpisy */
 h1, h2, h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+    font-family: 'Montserrat', sans-serif; /* Nastavuje nadpisy na jiné písmo než základní text */
+    font-weight: 600; /* Nastavuje tučnější písmo pro nadpisy */
 }
 
-/* Vylepšené menu */
+/* Navigační menu */
 nav {
-    background: linear-gradient(to right, #1a237e, #42a5f5);
-    color: white;
-    padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #1a237e, #42a5f5); /* Vytváří barevný přechod od tmavě modré k světle modré */
+    color: white; /* Barva textu v navigaci */
+    padding: 1rem; /* Vnitřní okraje kolem navigace */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Přidává jemný stín pod navigací */
 }
 
 nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
+    list-style-type: none; /* Odstraňuje odrážky u položek seznamu */
+    display: flex; /* Používá flexbox pro horizontální uspořádání */
+    justify-content: center; /* Centruje položky horizontálně */
+    margin: 0; /* Odstraňuje vnější okraje */
+    padding: 0; /* Odstraňuje vnitřní okraje */
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 15px; /* Nastavuje horizontální mezeru mezi položkami menu */
 }
 
 nav ul li a {
-    color: white;
-    text-decoration: none;
-    position: relative;
-    padding: 0.5rem 1rem;
-    transition: all 0.3s ease;
+    color: white; /* Barva textu odkazů */
+    text-decoration: none; /* Odstraňuje podtržení u odkazů */
+    position: relative; /* Umožňuje použití absolutního pozicování pro efekt podtržení */
+    padding: 0.5rem 1rem; /* Přidává prostor kolem textu odkazu */
+    transition: all 0.3s ease; /* Plynulý přechod pro všechny změny */
 }
 
+/* Podtržení při najetí myší */
 nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #ffd700;
-    transition: width 0.3s ease;
+    content: ''; /* Vytváří prázdný pseudo-element */
+    position: absolute; /* Absolutní pozicování vzhledem k odkazu */
+    bottom: -2px; /* Umístění 2px pod odkazem */
+    left: 0; /* Zarovnání zleva */
+    width: 0; /* Výchozí šířka je 0 */
+    height: 2px; /* Výška čáry */
+    background: #ffd700; /* Barva podtržení (zlatá) */
+    transition: width 0.3s ease; /* Animace změny šířky */
 }
 
+/* Rozšíření podtržení při najetí myší */
 nav ul li a:hover::after {
-    width: 100%;
+    width: 100%; /* Rozšíří podtržení na celou šířku odkazu */
 }
 
+/* Změna barvy textu při najetí myší nebo pro aktivní položku */
 nav ul li a:hover, nav ul li a.active {
-    color: #ffd700;
+    color: #ffd700; /* Změní barvu textu na zlatou */
 }
 
-/* Hero sekce */
+/* Hero sekce (úvodní banner) */
 header .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('background.jpg') no-repeat center center;
-    background-size: cover;
-    height: 80vh; /* Zvětšená výška pro lepší efekt */
-    position: relative;
-    margin-bottom: 2rem;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('background.jpg') no-repeat center center; /* Tmavý gradient překrývající obrázek pozadí */
+    background-size: cover; /* Roztáhne obrázek aby pokryl celou oblast */
+    height: 80vh; /* Výška je 80 % výšky viewportu */
+    position: relative; /* Umožňuje absolutní pozicování vnitřních prvků */
+    margin-bottom: 2rem; /* Přidává prostor pod bannerem */
 }
 
 header .overlay {
-    background: none; /* Odstraníme původní gradient, protože už je v background */
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    text-align: center;
-    padding: 0 20px;
+    background: none; /* Žádné pozadí, protože gradient je již v hero */
+    color: #fff; /* Barva textu */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Vertikální uspořádání */
+    justify-content: center; /* Vertikální centrování */
+    align-items: center; /* Horizontální centrování */
+    height: 100%; /* Výplň celé výšky hero sekce */
+    text-align: center; /* Centrování textu */
+    padding: 0 20px; /* Horizontální vnitřní okraje */
 }
 
+/* Hlavní nadpis v hero sekci */
 header .overlay h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    margin-bottom: 1.5rem;
-    transform: translateY(20px);
-    opacity: 0;
-    animation: fadeInUp 1s ease forwards;
+    font-size: 3.5rem; /* Velká velikost písma */
+    font-weight: 700; /* Velmi tučné písmo */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5); /* Stín textu pro lepší čitelnost */
+    margin-bottom: 1.5rem; /* Prostor pod nadpisem */
+    transform: translateY(20px); /* Počáteční pozice pro animaci */
+    opacity: 0; /* Počáteční průhlednost pro animaci */
+    animation: fadeInUp 1s ease forwards; /* Aplikuje animaci */
 }
 
+/* Podnadpis v hero sekci */
 header .overlay h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-    transform: translateY(20px);
-    opacity: 0;
-    animation: fadeInUp 1s ease 0.3s forwards;
+    font-size: 2rem; /* Velikost písma */
+    font-weight: 400; /* Normální tloušťka písma */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Stín textu */
+    transform: translateY(20px); /* Počáteční pozice pro animaci */
+    opacity: 0; /* Počáteční průhlednost */
+    animation: fadeInUp 1s ease 0.3s forwards; /* Animace se zpožděním 0.3s */
 }
 
-/* Animace pro nadpisy */
+/* Definice animace pro nadpisy */
 @keyframes fadeInUp {
     from {
-        transform: translateY(20px);
-        opacity: 0;
+        transform: translateY(20px); /* Začíná 20px pod konečnou pozicí */
+        opacity: 0; /* Zcela průhledné */
     }
     to {
-        transform: translateY(0);
-        opacity: 1;
+        transform: translateY(0); /* Konečná pozice */
+        opacity: 1; /* Plná viditelnost */
     }
 }
 
-/* Hlavní obsah */
+/* Hlavní obsah stránky */
 main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    flex: 1;
-    width: 100%;
-    box-sizing: border-box;
+    max-width: 1200px; /* Maximální šířka obsahu */
+    margin: 0 auto; /* Automatické horizontální centrování */
+    padding: 20px; /* Vnitřní okraje */
+    flex: 1; /* Roztáhne prvek aby vyplnil dostupný prostor */
+    width: 100%; /* Plná šířka */
+    box-sizing: border-box; /* Zahrnuje padding a border do celkové šířky */
 }
 
+/* Jednotlivé sekce na stránce */
 section {
-    margin-bottom: 2rem;
-    padding: 1.5rem;
-    background-color: #f4f4f4;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem; /* Mezera pod sekcí */
+    padding: 1.5rem; /* Vnitřní okraje */
+    background-color: #f4f4f4; /* Světlé pozadí */
+    border-radius: 10px; /* Zaoblené rohy */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Jemný stín */
 }
 
-/* Trenéři */
+/* Mřížka pro zobrazení trenérů */
 #trainers .trainers-grid {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: flex; /* Flexbox layout */
+    gap: 1.5rem; /* Mezera mezi prvky */
+    justify-content: center; /* Horizontální centrování */
+    flex-wrap: wrap; /* Umožňuje přetékání prvků na další řádek */
 }
 
+/* Karta trenéra */
 .trainer {
-    text-align: center;
-    padding: 1.5rem;
-    border: none;
-    border-radius: 10px;
-    background-color: white;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
+    text-align: center; /* Centrování textu */
+    padding: 1.5rem; /* Vnitřní okraje */
+    border: none; /* Bez ohraničení */
+    border-radius: 10px; /* Zaoblené rohy */
+    background-color: white; /* Bílé pozadí */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Stín */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animace pro hover efekt */
+    flex: 1; /* Rovnoměrné rozdělení prostoru */
+    min-width: 250px; /* Minimální šířka */
+    max-width: 300px; /* Maximální šířka */
 }
 
+/* Efekt při najetí myší na kartu trenéra */
 .trainer:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-5px); /* Mírné posunutí nahoru */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Výraznější stín */
 }
 
+/* Obrázek trenéra */
 .trainer img {
-    max-width: 200px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    border: 3px solid #42a5f5;
+    max-width: 200px; /* Maximální šířka obrázku */
+    border-radius: 50%; /* Kulatý obrázek */
+    margin-bottom: 1rem; /* Prostor pod obrázkem */
+    border: 3px solid #42a5f5; /* Modré ohraničení */
 }
 
+/* Seznam dovedností trenéra */
 .trainer ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
+    list-style-type: none; /* Bez standardních odrážek */
+    padding: 0; /* Bez vnitřního odsazení */
+    text-align: left; /* Zarovnání textu vlevo */
 }
 
 .trainer ul li {
-    margin: 0.5rem 0;
-    padding-left: 1.5rem;
-    position: relative;
+    margin: 0.5rem 0; /* Vertikální mezery mezi položkami */
+    padding-left: 1.5rem; /* Odsazení zleva pro vlastní odrážku */
+    position: relative; /* Pro absolutní pozicování odrážky */
 }
 
+/* Vlastní odrážka v seznamu */
 .trainer ul li::before {
-    content: "•";
-    color: #42a5f5;
-    position: absolute;
-    left: 0;
+    content: "•"; /* Symbol odrážky */
+    color: #42a5f5; /* Barva odrážky */
+    position: absolute; /* Absolutní pozicování */
+    left: 0; /* Zarovnání vlevo */
 }
 
-/* Tabulky */
+/* Styly pro tabulky */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1rem 0;
-    background-color: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 100%; /* Plná šířka */
+    border-collapse: collapse; /* Spojené okraje buněk */
+    margin: 1rem 0; /* Vertikální mezery */
+    background-color: white; /* Bílé pozadí */
+    border-radius: 8px; /* Zaoblené rohy */
+    overflow: hidden; /* Skrývá přetékající obsah */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Stín */
 }
 
+/* Buňky tabulky */
 th, td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid #ddd;
+    padding: 12px; /* Vnitřní okraje */
+    text-align: left; /* Zarovnání textu vlevo */
+    border: 1px solid #ddd; /* Světlé ohraničení */
 }
 
+/* Záhlaví tabulky */
 th {
-    background-color: #1a237e;
-    color: white;
-    font-weight: bold;
+    background-color: #1a237e; /* Tmavě modré pozadí */
+    color: white; /* Bílý text */
+    font-weight: bold; /* Tučné písmo */
 }
 
+/* Střídavé řádky v tabulce */
 tr:nth-child(even) {
-    background-color: #f9f9f9;
+    background-color: #f9f9f9; /* Světlé pozadí pro sudé řádky */
 }
 
+/* Zarovnání konkrétních sloupců */
 td:nth-child(2), td:nth-child(3) {
-    text-align: right;
+    text-align: right; /* Zarovnání obsahu vpravo */
 }
 
 /* Galerie */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 1rem;
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Automaticky vyplní řádky s obrázky o minimální šířce 300px */
+    gap: 1.5rem; /* Mezera mezi obrázky */
+    padding: 1rem; /* Vnitřní okraje */
 }
 
+/* Položka galerie */
 .gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
-    cursor: pointer; /* změna kurzoru */
+    position: relative; /* Pro absolutní pozicování překrytí */
+    overflow: hidden; /* Skrývá přetékající obsah */
+    border-radius: 10px; /* Zaoblené rohy */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Stín */
+    transition: transform 0.3s ease; /* Animace pro hover efekt */
+    cursor: pointer; /* Kurzor typu pointer */
 }
 
+/* Efekt při najetí myší na obrázek */
 .gallery-item:hover {
-    transform: scale(1.02);
+    transform: scale(1.02); /* Mírné zvětšení */
 }
 
+/* Obrázek v galerii */
 .gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
+    width: 100%; /* Plná šířka */
+    height: 250px; /* Fixní výška */
+    object-fit: cover; /* Zachovává poměr stran a ořezává obrázek */
+    display: block; /* Odstraňuje mezeru pod obrázkem */
 }
 
+/* Překrytí s popiskem */
 .gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(transparent, rgba(0,0,0,0.8));
-    color: white;
-    padding: 1rem;
-    transform: translateY(100%);
-    transition: transform 0.3s ease;
+    position: absolute; /* Absolutní pozicování */
+    bottom: 0; /* Zarovnání ke spodní hraně */
+    left: 0; /* Zarovnání k levé hraně */
+    right: 0; /* Roztažení na celou šířku */
+    background: linear-gradient(transparent, rgba(0,0,0,0.8)); /* Průhledný gradient */
+    color: white; /* Bílý text */
+    padding: 1rem; /* Vnitřní okraje */
+    transform: translateY(100%); /* Výchozí pozice mimo viditelnou oblast */
+    transition: transform 0.3s ease; /* Animace pro plynulé objevení */
 }
 
+/* Zobrazení překrytí při najetí myší */
 .gallery-item:hover .gallery-overlay {
-    transform: translateY(0);
+    transform: translateY(0); /* Posun na viditelnou pozici */
 }
 
-/* Modal */
+/* Modální okno pro galerii */
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.9);
-    z-index: 1000;
-    padding: 2rem;
+    display: none; /* Výchozí stav - skryto */
+    position: fixed; /* Fixní pozicování na obrazovce */
+    top: 0; /* Zarovnání k hornímu okraji */
+    left: 0; /* Zarovnání k levému okraji */
+    width: 100%; /* Plná šířka */
+    height: 100%; /* Plná výška */
+    background: rgba(0,0,0,0.9); /* Tmavé průhledné pozadí */
+    z-index: 1000; /* Vysoká hodnota Z-indexu pro překrytí ostatního obsahu */
+    padding: 2rem; /* Vnitřní okraje */
 }
 
+/* Obsah modálního okna */
 .modal-content {
-    max-width: 90%;
-    max-height: 90vh;
-    margin: auto;
-    display: block;
-    border-radius: 8px;
+    max-width: 90%; /* Maximální šířka */
+    max-height: 90vh; /* Maximální výška */
+    margin: auto; /* Automatické centrování */
+    display: block; /* Blokový prvek */
+    border-radius: 8px; /* Zaoblené rohy */
 }
 
+/* Aktivní modální okno */
 .modal.active {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Zobrazení jako flexbox */
+    justify-content: center; /* Horizontální centrování */
+    align-items: center; /* Vertikální centrování */
 }
 
+/* Tlačítko pro zavření modálního okna */
 .close-modal {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    z-index: 1010;
+    position: absolute; /* Absolutní pozicování */
+    top: 1rem; /* Odsazení od horního okraje */
+    right: 1rem; /* Odsazení od pravého okraje */
+    color: white; /* Bílá barva */
+    font-size: 2rem; /* Velká velikost písma */
+    cursor: pointer; /* Kurzor typu pointer */
+    transition: transform 0.3s ease; /* Animace rotace */
+    z-index: 1010; /* Z-index vyšší než modal */
 }
 
+/* Efekt při najetí myší na zavírací tlačítko */
 .close-modal:hover {
-    transform: rotate(90deg);
+    transform: rotate(90deg); /* Rotace o 90 stupňů */
 }
 
-/* Navigační šipky */
+/* Navigační tlačítka v galerii */
 .nav-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    font-size: 3rem;
-    background-color: rgba(0, 0, 0, 0.3);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 1010;
+    position: absolute; /* Absolutní pozicování */
+    top: 50%; /* Vertikální centrování */
+    transform: translateY(-50%); /* Přesné vertikální centrování */
+    color: white; /* Bílá barva */
+    font-size: 3rem; /* Velká velikost písma */
+    background-color: rgba(0, 0, 0, 0.3); /* Poloprůhledné pozadí */
+    width: 50px; /* Šířka tlačítka */
+    height: 50px; /* Výška tlačítka */
+    border-radius: 50%; /* Kulaté tlačítko */
+    display: flex; /* Flexbox pro centrování obsahu */
+    justify-content: center; /* Horizontální centrování */
+    align-items: center; /* Vertikální centrování */
+    cursor: pointer; /* Kurzor typu pointer */
+    transition: all 0.3s ease; /* Plynulý přechod pro všechny vlastnosti */
+    z-index: 1010; /* Z-index vyšší než modal */
 }
 
+/* Efekt při najetí myší na navigační tlačítko */
 .nav-btn:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Tmavší pozadí */
 }
 
+/* Tlačítko pro předchozí položku */
 .prev-btn {
-    left: 26%;
+    left: 26%; /* Pozice zleva */
 }
 
+/* Tlačítko pro další položku */
 .next-btn {
-    right: 26%;
+    right: 26%; /* Pozice zprava */
 }
 
-/* Kontakty */
+/* Kontaktní informace - rozložení */
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    display: grid; /* CSS Grid layout */
+    grid-template-columns: 1fr; /* Jeden sloupec */
+    gap: 2rem; /* Mezera mezi prvky */
+    margin-bottom: 2rem; /* Mezera pod celou sekcí */
 }
 
+/* Kontaktní údaje */
 .contact-details {
-    background-color: white;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    background-color: white; /* Bílé pozadí */
+    padding: 2rem; /* Vnitřní okraje */
+    border-radius: 10px; /* Zaoblené rohy */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Stín */
 }
 
+/* Nadpisy v kontaktních údajích */
 .contact-details h2 {
-    color: #1a237e;
-    margin-top: 1.5rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #42a5f5;
-    padding-bottom: 0.5rem;
+    color: #1a237e; /* Tmavě modrá barva */
+    margin-top: 1.5rem; /* Horní mezera */
+    margin-bottom: 1rem; /* Dolní mezera */
+    border-bottom: 2px solid #42a5f5; /* Modré podtržení */
+    padding-bottom: 0.5rem; /* Mezera pod textem */
 }
 
+/* První nadpis bez horní mezery */
 .contact-details h2:first-child {
-    margin-top: 0;
+    margin-top: 0; /* Odstraňuje horní mezeru u prvního nadpisu */
 }
 
+/* Odstavce v kontaktních údajích */
 .contact-details p {
-    margin-bottom: 1rem;
-    line-height: 1.6;
+    margin-bottom: 1rem; /* Mezera pod odstavcem */
+    line-height: 1.6; /* Výška řádku */
 }
 
+/* Odkazy na sociální sítě */
 .social-link {
-    color: #42a5f5;
-    text-decoration: none;
-    transition: color 0.3s ease;
-    font-weight: 500;
+    color: #42a5f5; /* Modrá barva */
+    text-decoration: none; /* Bez podtržení */
+    transition: color 0.3s ease; /* Plynulá změna barvy */
+    font-weight: 500; /* Středně tučné písmo */
 }
 
+/* Efekt při najetí myší na sociální odkaz */
 .social-link:hover {
-    color: #1a237e;
+    color: #1a237e; /* Tmavší modrá při najetí myší */
 }
 
+/* Kontejner pro mapu */
 .map-container {
-    width: 100%;
-    height: 450px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    width: 100%; /* Plná šířka */
+    height: 450px; /* Fixní výška */
+    border-radius: 10px; /* Zaoblené rohy */
+    overflow: hidden; /* Skrývá přetékající obsah */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Stín */
 }
 
+/* Iframe pro mapu */
 .map-container iframe {
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Plná šířka */
+    height: 100%; /* Plná výška kontejneru */
 }
 
-/* Tlačítko zpět nahoru */
+/* Tlačítko pro návrat nahoru */
 .back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #42a5f5;
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    opacity: 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    position: fixed; /* Fixní pozicování */
+    bottom: 20px; /* Odsazení od spodního okraje */
+    right: 20px; /* Odsazení od pravého okraje */
+    background: #42a5f5; /* Modré pozadí */
+    color: white; /* Bílý text */
+    width: 40px; /* Šířka */
+    height: 40px; /* Výška */
+    border-radius: 50%; /* Kulaté tlačítko */
+    display: flex; /* Flexbox pro centrování */
+    align-items: center; /* Vertikální centrování */
+    justify-content: center; /* Horizontální centrování */
+    text-decoration: none; /* Bez podtržení */
+    opacity: 0; /* Výchozí průhlednost */
+    transition: all 0.3s ease; /* Plynulé přechody */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Stín */
 }
 
+/* Viditelné tlačítko pro návrat nahoru */
 .back-to-top.visible {
-    opacity: 1;
+    opacity: 1; /* Plná viditelnost */
 }
 
+/* Efekt při najetí myší na tlačítko pro návrat nahoru */
 .back-to-top:hover {
-    background: #1a237e;
-    transform: translateY(-3px);
+    background: #1a237e; /* Tmavší pozadí */
+    transform: translateY(-3px); /* Mírný posun nahoru */
 }
 
-/* Footer */
+/* Patička */
 footer {
-    text-align: center;
-    padding: 1.5rem;
-    background: linear-gradient(to right, #1a237e, #42a5f5);
-    color: #fff;
+    text-align: center; /* Centrování textu */
+    padding: 1.5rem; /* Vnitřní okraje */
+    background: linear-gradient(to right, #1a237e, #42a5f5); /* Barevný přechod */
+    color: #fff; /* Bílý text */
 }
 
-/* Responzivní design */
+/* Responzivní design pro malé obrazovky */
 @media (max-width: 768px) {
     nav ul {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Vertikální uspořádání menu */
+        align-items: center; /* Horizontální centrování */
     }
     
     nav ul li {
-        margin: 10px 0;
+        margin: 10px 0; /* Vertikální mezery mezi položkami menu */
     }
     
     .trainers-grid {
-        flex-direction: column;
-        align-items: center;
+        flex-direction: column; /* Vertikální uspořádání */
+        align-items: center; /* Horizontální centrování */
     }
     
     .trainer {
-        width: 100%;
-        max-width: none;
+        width: 100%; /* Plná šířka */
+        max-width: none; /* Bez maximální šířky */
     }
     
     header .overlay h1 {
-        font-size: 2rem;
-        padding: 0 1rem;
+        font-size: 2rem; /* Menší velikost písma pro nadpis */
+        padding: 0 1rem; /* Horizontální vnitřní okraje */
     }
+    
     .nav-btn {
-        font-size: 2rem;
-        width: 40px;
-        height: 40px;
+        font-size: 2rem; /* Menší velikost písma */
+        width: 40px; /* Menší šířka tlačítka */
+        height: 40px; /* Menší výška tlačítka */
     }
 
     .prev-btn {
-        left: 0.2rem
+        left: 0.2rem /* Posunutí navigačního tlačítka blíže k okraji */
     }
     
     .next-btn {
-        right: 0.2rem;
+        right: 0.2rem; /* Posunutí navigačního tlačítka blíže k okraji */
     }
 }
 
+/* Responzivní design pro větší obrazovky */
 @media (min-width: 768px) {
     .contact-grid {
-        grid-template-columns: 1fr;
-        max-width: 800px;
-        margin: 0 auto 2rem auto;
+        grid-template-columns: 1fr; /* Jeden sloupec */
+        max-width: 800px; /* Maximální šířka */
+        margin: 0 auto 2rem auto; /* Centrování a spodní mezera */
     }
 }
 
-/* Pomocné třídy */
+/* Pomocné třídy pro textové zarovnání a mezery */
 .text-center {
-    text-align: center;
+    text-align: center; /* Centrování textu */
 }
 
 .mb-2 {
-    margin-bottom: 2rem;
+    margin-bottom: 2rem; /* Spodní mezera */
 }
 
 .mt-2 {
-    margin-top: 2rem;
+    margin-top: 2rem; /* Horní mezera */
 }
 
+/* Víceúrovňový formulář - kroky */
 .form-step {
-    display: none;
+    display: none; /* Výchozí stav - skryto */
 }
 
 .form-step.active {
-    display: block;
-    animation: fadeIn 0.5s ease-in-out;
+    display: block; /* Zobrazení aktivního kroku */
+    animation: fadeIn 0.5s ease-in-out; /* Animace objevení */
 }
 
+/* Lišta průběhu */
 .progress-bar {
-    display: flex;
-    justify-content: space-between;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    position: relative;
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Rovnoměrné rozložení */
+    max-width: 600px; /* Maximální šířka */
+    margin: 0 auto 2rem; /* Automatické centrování a spodní mezera */
+    position: relative; /* Pro absolutní pozicování linie */
 }
 
+/* Krok v liště průběhu */
 .progress-step {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 2;
+    width: 30px; /* Šířka kroku */
+    height: 30px; /* Výška kroku */
+    border-radius: 50%; /* Kulatý tvar */
+    background-color: #ddd; /* Šedé pozadí pro neaktivní krok */
+    display: flex; /* Flexbox pro centrování */
+    align-items: center; /* Vertikální centrování */
+    justify-content: center; /* Horizontální centrování */
+    position: relative; /* Pro Z-index */
+    z-index: 2; /* Vyšší Z-index než linie */
 }
 
+/* Aktivní krok v liště průběhu */
 .progress-step.active {
-    background-color: #42a5f5;
-    color: white;
+    background-color: #42a5f5; /* Modré pozadí */
+    color: white; /* Bílý text */
 }
 
+/* Dokončený krok v liště průběhu */
 .progress-step.completed {
-    background-color: #1a237e;
-    color: white;
+    background-color: #1a237e; /* Tmavě modré pozadí */
+    color: white; /* Bílý text */
 }
 
+/* Spojovací linie mezi kroky */
 .progress-line {
-    position: absolute;
-    height: 2px;
-    background-color: #ddd;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
+    position: absolute; /* Absolutní pozicování */
+    height: 2px; /* Výška linie */
+    background-color: #ddd; /* Šedá barva */
+    width: 100%; /* Plná šířka */
+    top: 50%; /* Vertikální centrování */
+    transform: translateY(-50%); /* Přesné vertikální centrování */
+    z-index: 1; /* Nižší Z-index než kroky */
 }
 
+/* Kontejner formuláře */
 .form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    max-width: 600px; /* Maximální šířka */
+    margin: 0 auto; /* Automatické centrování */
+    padding: 2rem; /* Vnitřní okraje */
+    background-color: white; /* Bílé pozadí */
+    border-radius: 10px; /* Zaoblené rohy */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Stín */
 }
 
+/* Skupina prvků formuláře */
 .form-group {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem; /* Spodní mezera */
 }
 
+/* Popisky formulářových prvků */
 .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    display: block; /* Blokový prvek */
+    margin-bottom: 0.5rem; /* Spodní mezera */
+    font-weight: 500; /* Středně tučné písmo */
 }
 
+/* Vstupní pole, rozbalovací seznamy a textové oblasti */
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
+    width: 100%; /* Plná šířka */
+    padding: 0.75rem; /* Vnitřní okraje */
+    border: 1px solid #ddd; /* Světlé ohraničení */
+    border-radius: 5px; /* Zaoblené rohy */
+    font-size: 1rem; /* Velikost písma */
 }
 
+/* Skupina tlačítek ve formuláři */
 .button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Rozložení tlačítek */
+    margin-top: 2rem; /* Horní mezera */
 }
 
+/* Základní styl tlačítek */
 .btn {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    padding: 0.75rem 1.5rem; /* Vnitřní okraje */
+    border: none; /* Bez ohraničení */
+    border-radius: 5px; /* Zaoblené rohy */
+    cursor: pointer; /* Kurzor typu pointer */
+    font-weight: 500; /* Středně tučné písmo */
+    transition: all 0.3s ease; /* Plynulé přechody */
 }
 
+/* Tlačítko pro předchozí krok */
 .btn-prev {
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #f4f4f4; /* Světlé pozadí */
+    color: #333; /* Tmavý text */
 }
 
+/* Tlačítka pro další krok a odeslání */
 .btn-next,
 .btn-submit {
-    background-color: #42a5f5;
-    color: white;
+    background-color: #42a5f5; /* Modré pozadí */
+    color: white; /* Bílý text */
 }
 
+/* Efekt při najetí myší na tlačítko */
 .btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Mírný posun nahoru */
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
