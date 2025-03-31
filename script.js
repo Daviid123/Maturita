@@ -187,19 +187,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Odeslání formuláře
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (validateStep(currentStep)) {
-            // Alert okno
-            alert('Vaše rezervace byla úspěšně odeslána!');
+   //funkce pro zobrazení notifikace
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'custom-notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Zobrazí notifikaci a po 3 sekundách ji skryje
+    setTimeout(() => notification.classList.add('show'), 10);
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => document.body.removeChild(notification), 300);
+    }, 3000);
+}
 
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateStep(currentStep)) {
+        showNotification('Vaše rezervace byla úspěšně odeslána!');
+        form.style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+        document.querySelector('.success-message').style.display = 'block';
+    }
             // Původní logika skrytí formuláře
             form.style.display = 'none';
             document.querySelector('.progress-bar').style.display = 'none';
             document.querySelector('.success-message').style.display = 'block';
         }
-    });
+    );
 
     // Nastavení minimálního data na dnešek
     const dateInput = document.getElementById('date');
@@ -207,4 +223,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const today = new Date().toISOString().split('T')[0];
         dateInput.min = today;
     }
-});
+
+
+//funkce pro zobrazení notifikace
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'custom-notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Zobrazí notifikaci a po 3 sekundách ji skryje
+    setTimeout(() => notification.classList.add('show'), 10);
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => document.body.removeChild(notification), 300);
+    }, 3000);
+}
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (validateStep(currentStep)) {
+        showNotification('Vaše rezervace byla úspěšně odeslána!');
+        form.style.display = 'none';
+        document.querySelector('.progress-bar').style.display = 'none';
+        document.querySelector('.success-message').style.display = 'block';
+    }
+})});

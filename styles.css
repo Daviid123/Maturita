@@ -726,3 +726,23 @@ body.prices-page {
 .prices-page small {
     color: rgba(255, 255, 255, 0.7);
 }
+
+.custom-notification {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s;
+    z-index: 1000;
+}
+
+.custom-notification.show {
+    opacity: 1;
+    transform: translateY(0);
+}
